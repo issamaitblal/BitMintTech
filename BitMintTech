@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Bitmint Tech - Aissam Ait Blal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mint: {
+                            50: '#f0fdf4',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d'
+                        },
+                        slate: {
+                            900: '#0f172a',
+                            800: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; scroll-behavior: smooth; }
+        .chart-container { position: relative; width: 100%; height: 300px; margin: 0 auto; }
+        .section-card { border: 1px solid #f1f5f9; border-radius: 1.5rem; padding: 2rem; background: white; }
+        @media print { .no-print { display: none; } body { font-size: 11pt; } .page-break { page-break-before: always; } }
+    </style>
+</head>
+<body class="text-slate-900 leading-relaxed">
+
+    <!-- Navbar -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-gray-100 py-4 px-6 sticky top-0 z-50 no-print">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="font-extrabold text-2xl tracking-tighter text-mint-600">BITMINT<span class="text-slate-900">TECH</span></div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-bold text-gray-400 hidden md:inline">DOSSIER PRÉSENTÉ PAR AISSAM AIT BLAL</span>
+                <button onclick="window.print()" class="bg-slate-900 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-mint-600 transition shadow-lg">Imprimer PDF</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-20 px-6 bg-gradient-to-b from-mint-50 to-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="bg-mint-600 text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">Confidentiel</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mt-6 mb-4 tracking-tight">Bitmint Tech : <br><span class="text-mint-600">L'Agence Digitale Agile</span></h1>
+            <p class="text-xl text-gray-500 mb-10">Un modèle économique "Lean" pour dominer le marché d'Agadir.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-400 uppercase font-bold mb-1">Investissement</p>
+                    <p class="text-2xl font-black text-slate-900">48K DH</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-400 uppercase font-bold mb-1">Seuil Rentable</p>
+                    <p class="text-2xl font-black text-mint-600">Mois 4</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-400 uppercase font-bold mb-1">Marge brute</p>
+                    <p class="text-2xl font-black text-slate-900">85%</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-400 uppercase font-bold mb-1">Porteur Projet</p>
+                    <p class="text-xs font-bold text-mint-600 leading-tight">Aissam Ait Blal</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-24">
+
+        <!-- Concept -->
+        <section class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-extrabold">Pourquoi ce projet ?</h2>
+                <p class="text-gray-600">Les entreprises d'Agadir (Tourisme, Commerce, Coopératives) ont un besoin urgent de digital. Les agences classiques sont trop chères à cause de leurs bureaux de 100m² et de leurs 15 employés.</p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-mint-100 p-2 rounded-lg text-mint-700 font-bold">01</div>
+                        <p class="text-sm"><strong>Coûts réduits :</strong> Pas de loyer inutile, on travaille en coworking.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-mint-100 p-2 rounded-lg text-mint-700 font-bold">02</div>
+                        <p class="text-sm"><strong>Expertise :</strong> Web design pro + Publicité ciblée (ROI).</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-mint-100 p-2 rounded-lg text-mint-700 font-bold">03</div>
+                        <p class="text-sm"><strong>Vitesse :</strong> On livre en 10 jours, là où les autres mettent 1 mois.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white space-y-6">
+                <h3 class="text-xl font-bold">Services & Prix</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span>Pack E-commerce</span>
+                        <span class="font-bold text-mint-500">10 000 DH</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span>Gestion Social Ads</span>
+                        <span class="font-bold text-mint-500">4 000 DH/m</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span>Maintenance Web</span>
+                        <span class="font-bold text-mint-500">1 500 DH/m</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400 italic text-center">Un seul site web par mois paye toutes les charges de l'agence.</p>
+            </div>
+        </section>
+
+        <!-- Budget Detail -->
+        <section class="space-y-8">
+            <h2 class="text-2xl font-extrabold border-l-4 border-mint-600 pl-4">Utilisation de l'investissement (48 000 DH)</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="section-card shadow-sm">
+                    <h4 class="font-bold mb-4 flex items-center gap-2"><span class="w-3 h-3 bg-mint-500 rounded-full"></span> Matériel & Outils (60%)</h4>
+                    <ul class="text-sm space-y-2 text-gray-600">
+                        <li>• Ordinateur High-Performance (Editing/Dev) : <strong>22 000 DH</strong></li>
+                        <li>• Double écran & accessoires pro : <strong>4 000 DH</strong></li>
+                        <li>• Licences logiciels & Cloud (1 an) : <strong>3 000 DH</strong></li>
+                    </ul>
+                </div>
+                <div class="section-card shadow-sm">
+                    <h4 class="font-bold mb-4 flex items-center gap-2"><span class="w-3 h-3 bg-blue-500 rounded-full"></span> Lancement & Légal (40%)</h4>
+                    <ul class="text-sm space-y-2 text-gray-600">
+                        <li>• Création de la SARL AU (Notaire/Frais) : <strong>6 000 DH</strong></li>
+                        <li>• Publicité pour trouver nos 1ers clients : <strong>8 000 DH</strong></li>
+                        <li>• Fonds de roulement (imprévus) : <strong>5 000 DH</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Remboursement Section (IMPORTANT FOR UNCLE) -->
+        <section class="section-card bg-slate-900 text-white page-break">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="md:w-1/2 space-y-6">
+                    <h2 class="text-3xl font-extrabold text-mint-500">Stratégie de Remboursement</h2>
+                    <p class="text-gray-300 text-sm">Je m'engage sur un plan de remboursement clair dès que le point mort est atteint (Mois 4). L'objectif est de sécuriser ton capital en priorité.</p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-mint-500/20 text-mint-500 rounded-full flex items-center justify-center font-bold shrink-0">A</div>
+                            <p class="text-xs"><strong class="text-white">Minimum Garanti :</strong> Remboursement fixe de 2 500 DH / mois à partir du 4ème mois.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-mint-500/20 text-mint-500 rounded-full flex items-center justify-center font-bold shrink-0">B</div>
+                            <p class="text-xs"><strong class="text-white">Bonus Performance :</strong> 10% de chaque nouveau contrat signé versé directement en remboursement anticipé.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-mint-500/20 text-mint-500 rounded-full flex items-center justify-center font-bold shrink-0">C</div>
+                            <p class="text-xs"><strong class="text-white">Délai estimé :</strong> Remboursement total des 48 000 DH sous 18 à 20 mois maximum.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 w-full bg-white/5 p-6 rounded-2xl border border-white/10">
+                    <h4 class="text-center text-sm font-bold mb-6">Plan de Retour sur Investissement</h4>
+                    <div class="chart-container">
+                        <canvas id="repaymentChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Croissance Section -->
+        <section class="space-y-12">
+            <div class="text-center space-y-4">
+                <h2 class="text-3xl font-extrabold">Plan de Croissance (24 mois)</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">On ne reste pas petit. L'argent est réinvesti pour faire de Bitmint Tech la référence à Agadir.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-2 bg-gray-50 text-[10px] font-bold">PHASE 1</div>
+                    <p class="text-xs font-bold text-mint-600 mb-2">Mois 1-6</p>
+                    <h4 class="font-bold text-sm mb-2">Lancement</h4>
+                    <p class="text-[11px] text-gray-500 leading-tight">Installation, acquisition des 3 premiers clients fixes. Validation du service.</p>
+                </div>
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-2 bg-gray-50 text-[10px] font-bold">PHASE 2</div>
+                    <p class="text-xs font-bold text-mint-600 mb-2">Mois 7-12</p>
+                    <h4 class="font-bold text-sm mb-2">Stabilité</h4>
+                    <p class="text-[11px] text-gray-500 leading-tight">Génération d'un revenu récurrent. Début du remboursement automatique.</p>
+                </div>
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm relative overflow-hidden border-2 border-mint-500">
+                    <div class="absolute top-0 right-0 p-2 bg-mint-500 text-white text-[10px] font-bold">EXPANSION</div>
+                    <p class="text-xs font-bold text-mint-600 mb-2">Mois 13-18</p>
+                    <h4 class="font-bold text-sm mb-2">Recrutement</h4>
+                    <p class="text-[11px] text-gray-500 leading-tight">Embauche d'un 1er assistant web pour doubler la capacité de production.</p>
+                </div>
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-2 bg-gray-50 text-[10px] font-bold">PHASE 4</div>
+                    <p class="text-xs font-bold text-mint-600 mb-2">Mois 19-24</p>
+                    <h4 class="font-bold text-sm mb-2">Agence Leader</h4>
+                    <p class="text-[11px] text-gray-500 leading-tight">Ouverture d'un bureau physique "vitrine" à Agadir. Remboursement terminé.</p>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="revenueGrowthChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Final Message -->
+        <section class="text-center space-y-8 pb-12">
+            <div class="bg-mint-50 p-10 rounded-[3rem] border border-mint-100">
+                <h3 class="text-2xl font-black mb-4">Prêt à démarrer ?</h3>
+                <p class="text-gray-600 max-w-xl mx-auto mb-8 text-sm">C'est un projet concret, avec peu de charges et un besoin réel sur le marché. Je suis prêt à m'investir à 200% pour faire de Bitmint Tech un succès et honorer ta confiance.</p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <div class="px-8 py-3 bg-slate-900 text-white rounded-full font-bold shadow-xl">Aissam Ait Blal</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-50 py-12 px-6 border-t border-gray-200 text-center">
+        <p class="font-bold text-slate-800">Bitmint Tech — Agadir 2026</p>
+        <p class="text-xs text-gray-400 mt-2 italic">Dossier technique de présentation — Document confidentiel.</p>
+    </footer>
+
+    <script>
+        const tooltipConfig = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            return Array.isArray(label) ? label.join(' ') : label;
+                        }
+                    }
+                }
+            }
+        };
+
+        // Repayment Chart
+        const ctxRepay = document.getElementById('repaymentChart').getContext('2d');
+        new Chart(ctxRepay, {
+            type: 'line',
+            data: {
+                labels: ['M1', 'M4', 'M8', 'M12', 'M16', 'M20'],
+                datasets: [{
+                    label: ['Capital Restant', '(en DH)'],
+                    data: [48000, 48000, 38000, 25000, 12000, 0],
+                    borderColor: '#22c55e',
+                    backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 5,
+                    pointBackgroundColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                ...tooltipConfig,
+                scales: {
+                    y: { beginAtZero: true, ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    x: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { display: false } }
+                }
+            }
+        });
+
+        // Growth Chart
+        const ctxGrowth = document.getElementById('revenueGrowthChart').getContext('2d');
+        new Chart(ctxGrowth, {
+            type: 'bar',
+            data: {
+                labels: [['Trimestre 1', '(Lancement)'], ['Trimestre 2', '(Stabilité)'], ['Trimestre 3', '(Embauche)'], ['Trimestre 4', '(Leader)']],
+                datasets: [{
+                    label: 'Chiffre d\'Affaires Projeté (DH)',
+                    data: [35000, 80000, 140000, 220000],
+                    backgroundColor: '#0f172a',
+                    borderRadius: 12
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                ...tooltipConfig,
+                scales: {
+                    y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } } },
+                    x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
