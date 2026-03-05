@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitmint Tech - Aissam Ait Blal</title>
+    <title>Bitmint Tech - Transformation Digitale Maroc</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -11,139 +11,166 @@
             theme: {
                 extend: {
                     colors: {
-                        mint: { 50: '#f0fdf4', 500: '#22c55e', 600: '#16a34a', 700: '#15803d' },
-                        slate: { 900: '#0f172a', 800: '#1e293b' }
-                    }
+                        mint: { 50: '#f0fdf4', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a' },
+                        slate: { 900: '#0f172a', 800: '#1e293b', 700: '#334155', 600: '#475569' }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; scroll-behavior: smooth; }
-        .chart-container { position: relative; width: 100%; height: 300px; margin: 0 auto; }
-        .section-card { border: 1px solid #f1f5f9; border-radius: 1.5rem; padding: 2rem; background: white; }
+        .chart-container { position: relative; width: 100%; height: 350px; }
+        .section-card { border: 1px solid #f1f5f9; border-radius: 2rem; padding: 2.5rem; background: white; transition: all 0.3s ease; }
         .lang-btn { transition: all 0.2s; padding: 6px 14px; border-radius: 99px; font-weight: 800; font-size: 11px; border: 1px solid #e2e8f0; }
         .lang-active { background-color: #22c55e; color: white; border-color: #22c55e; }
-        @media print { .no-print { display: none; } body { font-size: 11pt; } }
+        .stat-box { border-left: 4px solid #22c55e; padding-left: 1.5rem; }
+        @media print { .no-print { display: none; } body { font-size: 11pt; } .page-break { page-break-before: always; } }
     </style>
 </head>
-<body class="text-slate-900 leading-relaxed">
+<body class="text-slate-900 leading-relaxed bg-slate-50/30">
 
-    <!-- Navbar -->
+    <!-- Navigation -->
     <nav class="bg-white/90 backdrop-blur-md border-b border-gray-100 py-4 px-6 sticky top-0 z-50 no-print">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <div class="font-extrabold text-2xl tracking-tighter text-mint-600">BITMINT<span class="text-slate-900">TECH</span></div>
-            <div class="flex items-center gap-2">
-                <div class="flex bg-gray-50 p-1 rounded-full border border-gray-100 mr-2">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-mint-500 font-black text-2xl shadow-lg">B</div>
+                <div class="font-bold text-2xl tracking-tighter text-slate-900">BITMINT<span class="text-mint-600">TECH</span></div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:block text-[10px] font-black uppercase tracking-widest text-slate-400">Aissam Ait Blal — Agadir, Maroc</div>
+                <div class="flex bg-gray-100 p-1 rounded-full border border-gray-200">
                     <button onclick="changeLang('fr')" id="btn-fr" class="lang-btn lang-active">FR</button>
                     <button onclick="changeLang('en')" id="btn-en" class="lang-btn">EN</button>
                     <button onclick="changeLang('sv')" id="btn-sv" class="lang-btn">SV</button>
                 </div>
-                <button onclick="window.print()" class="bg-slate-900 text-white px-5 py-2 rounded-full font-bold text-xs hover:bg-mint-600 transition shadow-lg">PDF</button>
+                <button onclick="window.print()" class="bg-slate-900 text-white px-5 py-2 rounded-full hover:bg-mint-600 transition shadow-md font-bold text-xs uppercase">PDF</button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="py-16 px-6 bg-gradient-to-b from-mint-50 to-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <span id="label-confid" class="bg-mint-600 text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Confidentiel</span>
-            <h1 id="main-title" class="text-4xl md:text-6xl font-extrabold mt-6 mb-4 tracking-tight">Bitmint Tech : <br><span class="text-mint-600">L'Agence Digitale Agile</span></h1>
-            <p id="main-desc" class="text-lg text-gray-500 mb-10 max-w-2xl mx-auto">Une structure légère pour maximiser le profit et minimiser les risques. Présenté par <strong>Aissam Ait Blal</strong>.</p>
+    <!-- Header Section -->
+    <header class="py-24 px-6 bg-white border-b border-gray-100">
+        <div class="max-w-5xl mx-auto">
+            <span id="hero-tag" class="bg-mint-50 text-mint-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8 inline-block">Vision Maroc Digital 2030</span>
+            <h1 id="hero-title" class="text-5xl md:text-8xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8">
+                Digitaliser le <br><span class="text-mint-600 underline decoration-slate-900 decoration-8">Business Marocain.</span>
+            </h1>
+            <p id="hero-desc" class="text-xl md:text-2xl text-slate-500 max-w-3xl font-medium mb-12 italic">
+                Transformer les PME traditionnelles en leaders numériques. Une approche Lean, orientée ROI, pilotée par <strong>Aissam Ait Blal</strong>.
+            </p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-                    <p id="stat-invest" class="text-[10px] text-gray-400 uppercase font-bold mb-1">Investissement</p>
-                    <p class="text-2xl font-black text-slate-900">48K DH</p>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="stat-box">
+                    <p id="stat-1-label" class="text-[10px] text-slate-400 uppercase font-black mb-1">Potentiel Marché</p>
+                    <p class="text-3xl font-black text-slate-900">+4.5M <span class="text-sm font-normal text-slate-400 uppercase">PME</span></p>
                 </div>
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-                    <p id="stat-break" class="text-[10px] text-gray-400 uppercase font-bold mb-1">Seuil Rentable</p>
-                    <p id="val-break" class="text-2xl font-black text-mint-600">Mois 4</p>
+                <div class="stat-box border-slate-900">
+                    <p id="stat-2-label" class="text-[10px] text-slate-400 uppercase font-black mb-1">Budget Initial</p>
+                    <p class="text-3xl font-black text-slate-900">48K <span class="text-sm font-normal text-slate-400 uppercase">DH</span></p>
                 </div>
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-                    <p id="stat-margin" class="text-[10px] text-gray-400 uppercase font-bold mb-1">Marge brute</p>
-                    <p class="text-2xl font-black text-slate-900">85%</p>
+                <div class="stat-box border-blue-500">
+                    <p id="stat-3-label" class="text-[10px] text-slate-400 uppercase font-black mb-1">Seuil Rentable</p>
+                    <p class="text-3xl font-black text-slate-900">Mois 4</p>
                 </div>
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-                    <p id="stat-fees" class="text-[10px] text-gray-400 uppercase font-bold mb-1">Frais Fixes</p>
-                    <p class="text-2xl font-black text-blue-600">4 500 DH</p>
+                <div class="stat-box border-mint-500">
+                    <p id="stat-4-label" class="text-[10px] text-slate-400 uppercase font-black mb-1">Marge Cible</p>
+                    <p class="text-3xl font-black text-slate-900">~85%</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-12 space-y-20">
+    <main class="max-w-7xl mx-auto px-6 py-20 space-y-32">
 
-        <!-- Vision -->
-        <section class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <h2 id="vision-title" class="text-3xl font-extrabold">Vision du Projet</h2>
-                <p id="vision-text" class="text-gray-600 text-sm">Agadir est en plein essor digital. Notre agence Bitmint Tech propose des solutions professionnelles aux PME locales sans les coûts exorbitants des agences traditionnelles.</p>
-                <div class="space-y-4">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-mint-100 p-2 rounded-lg text-mint-700 font-bold text-xs">01</div>
-                        <p id="v-point1" class="text-xs"><strong>Modèle Lean :</strong> Pas de bureau de luxe, on travaille intelligemment pour réduire les charges.</p>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="bg-mint-100 p-2 rounded-lg text-mint-700 font-bold text-xs">02</div>
-                        <p id="v-point2" class="text-xs"><strong>Focus Profit :</strong> On ne vend que des services à haute marge (Sites E-com & Ads).</p>
+        <!-- Marché & Concurrence -->
+        <section id="marche" class="space-y-12">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <h2 id="market-title" class="text-4xl font-black text-slate-900 tracking-tighter uppercase">Étude de Marché & Opportunité</h2>
+                    <p id="market-desc" class="text-slate-500 text-lg">Le Maroc connaît une accélération digitale sans précédent. Cependant, une majorité des PME à Agadir utilisent encore des méthodes de gestion manuelles et archaïques.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl shadow-sm">
+                            <span id="market-stat-1" class="text-sm font-medium">Taux de digitalisation PME (Souss)</span>
+                            <span class="font-black text-slate-900">~22%</span>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl shadow-sm">
+                            <span id="market-stat-2" class="text-sm font-medium">Croissance annuelle E-commerce</span>
+                            <span class="font-black text-mint-600">+18%</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white space-y-6">
-                <h3 id="service-title" class="text-xl font-bold text-mint-500 text-center">Services & Tarifs</h3>
-                <div class="space-y-4 text-sm">
-                    <div class="flex justify-between border-b border-white/10 pb-2"><span id="s1">Pack E-commerce</span><span class="font-bold">10 000 DH</span></div>
-                    <div class="flex justify-between border-b border-white/10 pb-2"><span id="s2">Gestion Social Ads</span><span class="font-bold">4 000 DH/m</span></div>
-                    <div class="flex justify-between border-b border-white/10 pb-2"><span id="s3">Maintenance Web</span><span class="font-bold">1 500 DH/m</span></div>
+                <div class="bg-slate-900 rounded-[3rem] p-10 text-white shadow-2xl">
+                    <h3 id="comp-title" class="text-xl font-bold mb-8 uppercase tracking-widest text-mint-500 italic text-center">Analyse de la Concurrence</h3>
+                    <div class="space-y-6">
+                        <div class="border-l-2 border-white/20 pl-4">
+                            <h4 id="comp-1-t" class="font-bold text-white uppercase text-xs mb-1">Freelances Locaux</h4>
+                            <p id="comp-1-d" class="text-[11px] text-gray-400 italic">Prix bas mais manque de fiabilité, de suivi juridique et de vision stratégique sur le long terme.</p>
+                        </div>
+                        <div class="border-l-2 border-white/20 pl-4">
+                            <h4 id="comp-2-t" class="font-bold text-white uppercase text-xs mb-1">Agences Nationales</h4>
+                            <p id="comp-2-d" class="text-[11px] text-gray-400 italic">Prestations ultra-chères, frais de structure énormes, déconnectées de la réalité d'Agadir.</p>
+                        </div>
+                        <div class="border-l-2 border-mint-500 pl-4 bg-white/5 p-4 rounded-r-xl">
+                            <h4 id="comp-3-t" class="font-bold text-mint-500 uppercase text-xs mb-1">Bitmint Tech (Aissam)</h4>
+                            <p id="comp-3-d" class="text-[11px] text-white">Modèle Lean : Agilité d'un freelance + Rigueur d'une agence. Prix optimisés, ROI immédiat.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Budget Table -->
-        <section class="space-y-8">
-            <h2 id="budget-title" class="text-2xl font-extrabold border-l-4 border-mint-600 pl-4">Budget Détaillé (48 000 DH)</h2>
-            <div class="overflow-x-auto rounded-xl border border-gray-100">
-                <table class="w-full text-left text-sm">
-                    <thead class="bg-slate-900 text-white">
-                        <tr><th id="th-cat" class="p-4">Catégorie</th><th id="th-det" class="p-4">Détail</th><th id="th-cost" class="p-4 text-right">Coût</th></tr>
-                    </thead>
-                    <tbody id="budget-body" class="bg-white"></tbody>
-                </table>
+        <!-- Services -->
+        <section id="services-section" class="space-y-16">
+            <div class="text-center">
+                <h2 id="services-title" class="text-4xl font-black text-slate-900 tracking-tighter uppercase">Nos Solutions de Digitalisation</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8" id="services-grid">
+                <!-- Services Render -->
             </div>
         </section>
 
-        <!-- Repayment -->
-        <section class="section-card bg-slate-900 text-white shadow-2xl">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
-                <div class="md:w-1/2 space-y-6">
-                    <h2 id="repay-title" class="text-3xl font-extrabold text-mint-500">Stratégie de Remboursement</h2>
-                    <p id="repay-desc" class="text-gray-400 text-sm">Engagement de remboursement prioritaire dès le 4ème mois.</p>
-                    <div class="space-y-4" id="repay-list"></div>
+        <!-- Budget Allocation -->
+        <section id="budget-section" class="space-y-16 bg-slate-900 rounded-[4rem] p-10 md:p-20 text-white shadow-2xl">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-10">
+                    <h2 id="budget-title-alt" class="text-4xl font-black text-mint-500 tracking-tighter uppercase">Allocation du Budget (48 000 DH)</h2>
+                    <p id="budget-desc" class="text-gray-400 text-sm">Une répartition stratégique pour maximiser la capacité de production et l'acquisition client dès le premier jour.</p>
+                    <div class="space-y-4" id="budget-breakdown">
+                        <!-- Budget List Render -->
+                    </div>
                 </div>
-                <div class="md:w-1/2 w-full bg-white/5 p-4 rounded-2xl border border-white/10">
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-md">
+                    <h4 id="chart-title-1" class="text-center text-[10px] font-black mb-8 text-gray-400 uppercase tracking-widest">Répartition des Investissements</h4>
                     <div class="chart-container">
-                        <canvas id="repaymentChart"></canvas>
+                        <canvas id="budgetChart"></canvas>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Growth Roadmap -->
-        <section class="space-y-12">
-            <h2 id="growth-title" class="text-3xl font-extrabold text-center">Plan de Croissance (24 mois)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4" id="growth-cards"></div>
-            <div class="chart-container">
-                <canvas id="growthChart"></canvas>
+        <!-- Roadmap -->
+        <section id="roadmap-section" class="space-y-16">
+            <div class="text-center space-y-4">
+                <h2 id="roadmap-title" class="text-4xl font-black text-slate-900 tracking-tighter uppercase">Plan de Croissance & Scalabilité</h2>
+                <p id="roadmap-desc" class="text-slate-400 text-sm italic">De l'unité mobile à l'agence de référence régionale.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4" id="roadmap-cards">
+                <!-- Roadmap Cards Render -->
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="text-center py-12 border-t border-gray-100 bg-mint-50 rounded-[3rem]">
-            <h2 id="footer-title" class="text-2xl font-black mb-4">Prêt à démarrer ?</h2>
-            <p id="footer-desc" class="text-gray-600 max-w-xl mx-auto mb-8 text-sm italic">Présenté par Aissam Ait Blal.</p>
-            <div class="inline-block px-10 py-3 bg-slate-900 text-white rounded-full font-bold shadow-xl text-xs uppercase tracking-widest">Aissam Ait Blal</div>
+        <footer class="text-center py-24 border-t border-gray-100 bg-mint-50 rounded-[5rem] mx-4 mb-10">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 id="footer-title" class="text-4xl font-black mb-6 text-slate-900">Bâtir l'économie de demain.</h2>
+                <p id="footer-desc" class="text-slate-500 text-lg italic mb-12">Ce projet est une opportunité unique de capturer un marché en pleine mutation à Agadir. Prêt pour le lancement.</p>
+                <div class="inline-block px-14 py-5 bg-slate-900 text-white rounded-full font-bold shadow-2xl uppercase text-[12px] tracking-[0.2em]">Aissam Ait Blal</div>
+                <p class="text-[10px] text-slate-400 mt-8 uppercase font-bold tracking-widest">Bitmint Tech — Agadir, Maroc 2026</p>
+            </div>
         </footer>
 
     </main>
@@ -151,141 +178,147 @@
     <script>
         const translations = {
             fr: {
-                labelConf: "Confidentiel",
-                mainT: "Bitmint Tech : <br><span class='text-mint-600'>L'Agence Digitale Agile</span>",
-                mainD: "Un modèle économique 'Lean' pour dominer le marché d'Agadir. Présenté par <strong>Aissam Ait Blal</strong>.",
-                invest: "Investissement",
-                break: "Seuil Rentable",
-                valBreak: "Mois 4",
-                margin: "Marge brute",
-                fees: "Frais Fixes",
-                visionT: "Vision du Projet",
-                visionD: "Agadir est en plein essor digital. Notre agence Bitmint Tech propose des solutions professionnelles aux PME locales sans les coûts exorbitants des agences traditionnelles.",
-                p1: "<strong>Modèle Lean :</strong> Pas de bureau de luxe, on travaille intelligemment pour réduire les charges.",
-                p2: "<strong>Focus Profit :</strong> On ne vend que des services à haute marge (Sites E-com & Ads).",
-                servT: "Services & Tarifs",
-                s1: "Pack E-commerce", s2: "Gestion Social Ads", s3: "Maintenance Web",
-                budT: "Budget Détaillé (48 000 DH)",
-                thCat: "Catégorie", thDet: "Détail", thCost: "Coût",
-                rows: [
-                    ["Matériel", "Ordinateur Pro High-End + Écrans", "26 000 DH"],
-                    ["Légal", "Création SARL AU & Frais Notaire", "6 000 DH"],
-                    ["Marketing", "Publicité de lancement (3 mois)", "10 000 DH"],
-                    ["Logiciels", "Licences & Hébergement Cloud", "3 000 DH"],
-                    ["Sécurité", "Réserve de trésorerie", "3 000 DH"]
+                heroTag: "Vision Maroc Digital 2030",
+                heroTitle: "Digitaliser le <br><span class='text-mint-600 underline decoration-slate-900 decoration-8'>Business Marocain.</span>",
+                heroDesc: "Transformer les PME traditionnelles en leaders numériques. Une approche Lean, orientée ROI, pilotée par <strong>Aissam Ait Blal</strong>.",
+                stat1: "Potentiel Marché", stat2: "Budget Initial", stat3: "Seuil Rentable", stat4: "Marge Cible",
+                marketTitle: "Étude de Marché & Opportunité",
+                marketDesc: "Le Maroc connaît une accélération digitale sans précédent. Cependant, une majorité des PME à Agadir utilisent encore des méthodes de gestion manuelles et archaïques.",
+                marketStat1: "Taux de digitalisation PME (Souss)",
+                marketStat2: "Croissance annuelle E-commerce",
+                compTitle: "Analyse de la Concurrence",
+                comp1T: "Freelances Locaux",
+                comp1D: "Prix bas mais manque de fiabilité et de vision stratégique.",
+                comp2T: "Agences Nationales",
+                comp2D: "Prestations ultra-chères, frais de structure énormes, déconnectées de la réalité d'Agadir.",
+                comp3T: "Bitmint Tech (Aissam)",
+                comp3D: "Modèle Lean : Agilité d'un freelance + Rigueur d'une agence. ROI immédiat.",
+                servicesTitle: "Nos Solutions de Digitalisation",
+                services: [
+                    {t: "Transformation PME", d: "Digitalisation des processus métier. ERP léger, CRM et gestion de stock cloud."},
+                    {t: "E-commerce Performance", d: "Conception de boutiques Shopify/WP avec focus 100% sur la conversion et l'expérience utilisateur."},
+                    {t: "Infrastructure & Managed", d: "Maintenance technique, sécurité cyber et hébergement haute performance pour la stabilité."},
+                    {t: "Sport-Tech (Niche)", d: "Digitalisation des académies de football et complexes sportifs via des systèmes de gestion sur-mesure."},
+                    {t: "Performance Marketing", d: "Gestion de campagnes Ads (Meta/Google) orientées résultats, génération de leads et ventes."},
+                    {t: "Audit & Conseil", d: "Diagnostic complet de la maturité digitale et plan stratégique de croissance pour les PME."}
                 ],
-                repayT: "Stratégie de Remboursement",
-                repayD: "Je m'engage sur un plan de remboursement clair dès que le point mort est atteint (Mois 4).",
-                repayL: [
-                    "<strong>Part Fixe :</strong> 2 500 DH/mois dès le mois 4.",
-                    "<strong>Part Variable :</strong> 10% de chaque site web vendu.",
-                    "<strong>Délai :</strong> Remboursement total sous 18-20 mois."
+                budgetTitle: "Allocation du Budget (48 000 DH)",
+                budgetDesc: "Une répartition stratégique pour maximiser la capacité de production et l'acquisition client dès le premier jour.",
+                budgetItems: [
+                    {t: "Hardware", d: "Station de travail haute performance (PC, Écrans)", v: "25 000 DH"},
+                    {t: "Légal", d: "Constitution de la SARL AU & Frais de Notaire", v: "6 000 DH"},
+                    {t: "Marketing", d: "Campagnes de lancement publicitaire (Ads)", v: "10 000 DH"},
+                    {t: "Logiciels", d: "Licences professionnelles & Cloud (1 an)", v: "3 000 DH"},
+                    {t: "Réserve", d: "Trésorerie de sécurité opérationnelle", v: "4 000 DH"}
                 ],
-                growthT: "Plan de Croissance (24 mois)",
+                chartT1: "Répartition des Investissements",
+                roadmapTitle: "Plan de Croissance & Scalabilité",
+                roadmapDesc: "De l'unité mobile à l'agence de référence régionale.",
                 cards: [
-                    {m: "Mois 1-6", t: "Lancement", d: "Acquisition des 3 premiers clients fixes."},
-                    {m: "Mois 7-12", t: "Stabilité", d: "Revenu récurrent & début remboursement."},
-                    {m: "Mois 13-18", t: "Scalabilité", d: "Embauche d'un assistant technique."},
-                    {m: "Mois 19+", t: "Leader", d: "Ouverture d'un bureau vitrine à Agadir."}
+                    {m: "Mois 1-3", t: "Setup & Pilotage", d: "Acquisition matériel, création SARL et 2 premiers clients tests."},
+                    {m: "Mois 4-10", t: "Validation", d: "Génération de revenu récurrent stable. Point mort atteint."},
+                    {m: "Mois 12-18", t: "Expansion", d: "Recrutement d'un développeur junior pour augmenter la capacité de production."},
+                    {m: "An 2+", t: "Leader Régional", d: "Ouverture d'un bureau physique à Agadir. Équipe de 5-7 experts."}
                 ],
-                footerT: "Prêt à démarrer ?",
-                footerD: "Projet concret présenté par Aissam Ait Blal.",
-                chartL1: "Dette Restante (DH)",
-                chartL2: "CA Projeté (DH)",
-                chartTrim: ["Trim 1", "Trim 2", "Trim 3", "Trim 4"]
+                footerTitle: "Bâtir l'économie de demain.",
+                footerDesc: "Ce projet est une opportunité unique de capturer un marché en pleine mutation à Agadir. Prêt pour le lancement."
             },
             en: {
-                labelConf: "Confidential",
-                mainT: "Bitmint Tech: <br><span class='text-mint-600'>The Agile Digital Agency</span>",
-                mainD: "A 'Lean' business model to dominate the Agadir market. Presented by <strong>Aissam Ait Blal</strong>.",
-                invest: "Investment",
-                break: "Break-even",
-                valBreak: "Month 4",
-                margin: "Gross Margin",
-                fees: "Fixed Costs",
-                visionT: "Project Vision",
-                visionD: "Agadir is seeing a digital boom. Bitmint Tech offers professional solutions to local SMEs without the high costs of traditional agencies.",
-                p1: "<strong>Lean Model:</strong> No luxury office, we work smart to reduce overhead.",
-                p2: "<strong>Profit Focus:</strong> We only sell high-margin services (E-com & Ads).",
-                servT: "Services & Pricing",
-                s1: "E-commerce Pack", s2: "Social Ads Management", s3: "Web Maintenance",
-                budT: "Detailed Budget (48,000 DH)",
-                thCat: "Category", thDet: "Detail", thCost: "Cost",
-                rows: [
-                    ["Hardware", "High-End Pro PC + Screens", "26,000 DH"],
-                    ["Legal", "SARL AU Legal Setup", "6,000 DH"],
-                    ["Marketing", "Launch Ads (3 months)", "10,000 DH"],
-                    ["Software", "Cloud Licenses & Hosting", "3,000 DH"],
-                    ["Security", "Cash Reserve", "3,000 DH"]
+                heroTag: "Morocco Digital 2030 Vision",
+                heroTitle: "Digitalizing the <br><span class='text-mint-600 underline decoration-slate-900 decoration-8'>Moroccan Business.</span>",
+                heroDesc: "Transforming traditional SMEs into digital leaders. A Lean, ROI-driven approach, led by <strong>Aissam Ait Blal</strong>.",
+                stat1: "Market Potential", stat2: "Initial Budget", stat3: "Break-even", stat4: "Target Margin",
+                marketTitle: "Market Research & Opportunity",
+                marketDesc: "Morocco is experiencing unprecedented digital acceleration. However, most SMEs in Agadir still use manual and archaic management methods.",
+                marketStat1: "SME Digitalization Rate (Souss)",
+                marketStat2: "Annual E-commerce Growth",
+                compTitle: "Competitor Analysis",
+                comp1T: "Local Freelancers",
+                comp1D: "Low prices but lack of reliability and strategic vision.",
+                comp2T: "National Agencies",
+                comp2D: "Ultra-expensive services, huge overhead, disconnected from Agadir's reality.",
+                comp3T: "Bitmint Tech (Aissam)",
+                comp3D: "Lean Model: Freelancer agility + Agency rigor. Immediate ROI.",
+                servicesTitle: "Our Digitalization Solutions",
+                services: [
+                    {t: "SME Transformation", d: "Digitalizing business processes. Lean ERP, CRM, and cloud inventory."},
+                    {t: "Performance E-commerce", d: "Shopify/WP storefront design focused 100% on conversion and UX."},
+                    {t: "Infrastructure & Managed", d: "Tech maintenance, cybersecurity, and high-performance hosting."},
+                    {t: "Sport-Tech (Niche)", d: "Digitalizing football academies and sports complexes via custom systems."},
+                    {t: "Performance Marketing", d: "Result-oriented Ads management (Meta/Google), generating leads."},
+                    {t: "Audit & Consulting", d: "Full digital maturity diagnosis and growth strategy for SMEs."}
                 ],
-                repayT: "Repayment Strategy",
-                repayD: "I am committed to a clear repayment plan starting from Month 4.",
-                repayL: [
-                    "<strong>Fixed Part:</strong> 2,500 DH/month starting Month 4.",
-                    "<strong>Variable Part:</strong> 10% of each website sold.",
-                    "<strong>Timeline:</strong> Full repayment within 18-20 months."
+                budgetTitle: "Budget Allocation (48,000 DH)",
+                budgetDesc: "Strategic distribution to maximize production capacity and client acquisition from day one.",
+                budgetItems: [
+                    {t: "Hardware", d: "High-performance workstation (PC, Monitors)", v: "25,000 DH"},
+                    {t: "Legal", d: "SARL AU Setup & Notary Fees", v: "6,000 DH"},
+                    {t: "Marketing", d: "Advertising Launch Campaigns (Ads)", v: "10,000 DH"},
+                    {t: "Software", d: "Pro Licenses & Cloud (1 year)", v: "3,000 DH"},
+                    {t: "Reserve", d: "Operational Security Buffer", v: "4,000 DH"}
                 ],
-                growthT: "Growth Roadmap (24 months)",
+                chartT1: "Investment Distribution",
+                roadmapTitle: "Growth & Scalability Plan",
+                roadmapDesc: "From mobile unit to regional reference agency.",
                 cards: [
-                    {m: "Months 1-6", t: "Launch", d: "Acquiring first 3 fixed clients."},
-                    {m: "Months 7-12", t: "Stability", d: "Recurring revenue & repayment start."},
-                    {m: "Months 13-18", t: "Scaling", d: "Hiring a technical assistant."},
-                    {m: "Months 19+", t: "Leader", d: "Opening a showcase office in Agadir."}
+                    {m: "Months 1-3", t: "Setup & Pilot", d: "Hardware acquisition, SARL creation, and first 2 pilot clients."},
+                    {m: "Months 4-10", t: "Validation", d: "Stable recurring revenue generation. Break-even reached."},
+                    {m: "Months 12-18", t: "Expansion", d: "Hiring a junior developer to increase production capacity."},
+                    {m: "Year 2+", t: "Regional Leader", d: "Opening a physical office in Agadir. Team of 5-7 experts."}
                 ],
-                footerT: "Ready to Start?",
-                footerD: "Concrete project presented by Aissam Ait Blal.",
-                chartL1: "Remaining Debt (DH)",
-                chartL2: "Projected Revenue (DH)",
-                chartTrim: ["Q1", "Q2", "Q3", "Q4"]
+                footerTitle: "Building tomorrow's economy.",
+                footerDesc: "This project is a unique opportunity to capture a changing market in Agadir. Ready for launch."
             },
             sv: {
-                labelConf: "Konfidentiellt",
-                mainT: "Bitmint Tech: <br><span class='text-mint-600'>Den Agila Digitalbyrån</span>",
-                mainD: "En 'Lean' affärsmodell för att dominera Agadir-marknaden. Presenterad av <strong>Aissam Ait Blal</strong>.",
-                invest: "Investering",
-                break: "Break-even",
-                valBreak: "Månad 4",
-                margin: "Bruttomarginal",
-                fees: "Fasta kostnader",
-                visionT: "Projektvision",
-                visionD: "Agadir ser en digital boom. Bitmint Tech erbjuder proffsiga lösningar till lokala företag utan de höga kostnaderna hos traditionella byråer.",
-                p1: "<strong>Lean-modell:</strong> Inget lyxkontor, vi jobbar smart för att minska omkostnader.",
-                p2: "<strong>Vinstfokus:</strong> Vi säljer endast tjänster med hög marginal (E-handel & Annonsering).",
-                servT: "Tjänster & Priser",
-                s1: "E-handelspaket", s2: "Social Ads hantering", s3: "Webbunderhåll",
-                budT: "Detaljerad budget (48 000 DH)",
-                thCat: "Kategori", thDet: "Detalj", thCost: "Kostnad",
-                rows: [
-                    ["Hårdvara", "High-End Pro PC + Skärmar", "26 000 DH"],
-                    ["Juridik", "SARL AU-bolagsbildning", "6 000 DH"],
-                    ["Marknadsföring", "Lanseringsannonser (3 mån)", "10 000 DH"],
-                    ["Mjukvara", "Licenser & Moln", "3 000 DH"],
-                    ["Säkerhet", "Likviditetsreserv", "3 000 DH"]
+                heroTag: "Marocko Digital 2030 Vision",
+                heroTitle: "Digitalisera <br><span class='text-mint-600 underline decoration-slate-900 decoration-8'>Marockanska Företag.</span>",
+                heroDesc: "Omvandla traditionella småföretag till digitala ledare. Ett Lean-startup-koncept drivet av <strong>Aissam Ait Blal</strong>.",
+                stat1: "Marknadspotential", stat2: "Startbudget", stat3: "Nollpunkt", stat4: "Målmarginal",
+                marketTitle: "Marknadsundersökning & Möjligheter",
+                marketDesc: "Marocko genomgår en historisk digitalisering. Men majoriteten av företagen i Agadir använder fortfarande manuella och föråldrade metoder.",
+                marketStat1: "Digitaliseringsgrad SME (Souss)",
+                marketStat2: "Årlig tillväxt E-handel",
+                compTitle: "Konkurrentanalys",
+                comp1T: "Lokala Frilansare",
+                comp1D: "Låga priser men brist på pålitlighet och långsiktig strategi.",
+                comp2T: "Nationella Byråer",
+                comp2D: "Extremt dyra, höga fasta kostnader, saknar lokal förankring i Agadir.",
+                comp3T: "Bitmint Tech (Aissam)",
+                comp3D: "Lean-modell: Frilansarens smidighet + Byråns seriositet. Omedelbar ROI.",
+                servicesTitle: "Våra Digitaliseringslösningar",
+                services: [
+                    {t: "Företagsomvandling", d: "Från pappersarbete till molnet. Lagerstyrning, fakturering och integrerat CRM."},
+                    {t: "Prestanda E-handel", d: "Shopify/WP-butiker med 100 % fokus på konvertering och användarupplevelse."},
+                    {t: "Infrastruktur & Support", d: "Tekniskt underhåll, cybersäkerhet och högpresterande hosting."},
+                    {t: "Sport-Tech (Specialitet)", d: "Digitalisering av fotbollsakademier och sportanläggningar via anpassade system."},
+                    {t: "Resultatdriven Marknadsföring", d: "Hantering av annonser (Meta/Google) för att generera leads och försäljning."},
+                    {t: "Audit & Rådgivning", d: "Diagnos av digital mognad och strategisk tillväxtplan för företag."}
                 ],
-                repayT: "Återbetalningsstrategi",
-                repayD: "Jag har förbundit mig till en tydlig återbetalningsplan fr.o.m. månad 4.",
-                repayL: [
-                    "<strong>Fast del:</strong> 2 500 DH/månad fr.o.m. månad 4.",
-                    "<strong>Rörlig del:</strong> 10% av varje såld hemsida.",
-                    "<strong>Tidslinje:</strong> Full återbetalning inom 18-20 månader."
+                budgetTitle: "Budgetallokering (48 000 DH)",
+                budgetDesc: "Strategisk fördelning för att maximera produktionskapacitet och kundförvärv från dag ett.",
+                budgetItems: [
+                    {t: "Hårdvara", d: "Högpresterande arbetsstation (Dator, Skärmar)", v: "25 000 DH"},
+                    {t: "Juridik", d: "Bolagsbildning (SARL AU) & Notariekostnader", v: "6 000 DH"},
+                    {t: "Marknadsföring", d: "Lanseringsannonser (Ads)", v: "10 000 DH"},
+                    {t: "Mjukvara", d: "Pro-licenser & Molntjänster (1 år)", v: "3 000 DH"},
+                    {t: "Buffert", d: "Operativ likviditetsreserv", v: "4 000 DH"}
                 ],
-                growthT: "Tillväxtplan (24 månader)",
+                chartT1: "Investeringsfördelning",
+                roadmapTitle: "Tillväxtplan & Skalbarhet",
+                roadmapDesc: "Från mobil enhet till regionalt ledande byrå.",
                 cards: [
-                    {m: "Månad 1-6", t: "Lansering", d: "Skaffa första 3 fasta kunderna."},
-                    {m: "Månad 7-12", t: "Stabilitet", d: "Återkommande intäkter & amortering."},
-                    {m: "Månad 13-18", t: "Skalning", d: "Anställning av teknisk assistent."},
-                    {m: "Månad 19+", t: "Ledare", d: "Öppna showroom-kontor i Agadir."}
+                    {m: "Månad 1-3", t: "Uppstart & Pilot", d: "Inköp av utrustning, bolagsbildning och de första 2 testkunderna."},
+                    {m: "Månad 4-10", t: "Validering", d: "Stabil generering av återkommande intäkter. Nollpunkt nådd."},
+                    {m: "Månad 12-18", t: "Expansion", d: "Anställning av en junior utvecklare för att öka kapaciteten."},
+                    {m: "År 2+", t: "Regional Ledare", d: "Öppna ett 'Showroom'-kontor i Agadir. Team på 5-7 experter."}
                 ],
-                footerT: "Redo att börja?",
-                footerD: "Konkret projekt presenterat av Aissam Ait Blal.",
-                chartL1: "Återstående skuld (DH)",
-                chartL2: "Beräknad intäkt (DH)",
-                chartTrim: ["Kvartal 1", "Kvartal 2", "Kvartal 3", "Kvartal 4"]
+                footerTitle: "Bygga morgondagens ekonomi.",
+                footerDesc: "Detta projekt är en unik möjlighet att ta marknadsandelar i ett Agadir under förändring."
             }
         };
 
         let currentLang = 'fr';
-        let chart1, chart2;
+        let budgetChart;
 
         function changeLang(lang) {
             currentLang = lang;
@@ -295,91 +328,102 @@
         }
 
         function updateUI() {
-            const t = translations[currentLang];
-            document.getElementById('label-confid').innerText = t.labelConf;
-            document.getElementById('main-title').innerHTML = t.mainT;
-            document.getElementById('main-desc').innerHTML = t.mainD;
-            document.getElementById('stat-invest').innerText = t.invest;
-            document.getElementById('stat-break').innerText = t.break;
-            document.getElementById('val-break').innerText = t.valBreak;
-            document.getElementById('stat-margin').innerText = t.margin;
-            document.getElementById('stat-fees').innerText = t.fees;
-            document.getElementById('vision-title').innerText = t.visionT;
-            document.getElementById('vision-text').innerText = t.visionD;
-            document.getElementById('v-point1').innerHTML = t.p1;
-            document.getElementById('v-point2').innerHTML = t.p2;
-            document.getElementById('service-title').innerText = t.servT;
-            document.getElementById('s1').innerText = t.s1;
-            document.getElementById('s2').innerText = t.s2;
-            document.getElementById('s3').innerText = t.s3;
-            document.getElementById('budget-title').innerText = t.budT;
-            document.getElementById('th-cat').innerText = t.thCat;
-            document.getElementById('th-det').innerText = t.thDet;
-            document.getElementById('th-cost').innerText = t.thCost;
-            document.getElementById('repay-title').innerText = t.repayT;
-            document.getElementById('repay-desc').innerText = t.repayD;
-            document.getElementById('growth-title').innerText = t.growthT;
-            document.getElementById('footer-title').innerText = t.footerT;
-            document.getElementById('footer-desc').innerText = t.footerD;
+            const t = translations[currentLang] || translations['fr'];
+            document.getElementById('hero-tag').innerText = t.heroTag;
+            document.getElementById('hero-title').innerHTML = t.heroTitle;
+            document.getElementById('hero-desc').innerHTML = t.heroDesc;
+            document.getElementById('stat-1-label').innerText = t.stat1;
+            document.getElementById('stat-2-label').innerText = t.stat2;
+            document.getElementById('stat-3-label').innerText = t.stat3;
+            document.getElementById('stat-4-label').innerText = t.stat4;
+            document.getElementById('market-title').innerText = t.marketTitle;
+            document.getElementById('market-desc').innerText = t.marketDesc;
+            document.getElementById('market-stat-1').innerText = t.marketStat1;
+            document.getElementById('market-stat-2').innerText = t.marketStat2;
+            document.getElementById('comp-title').innerText = t.compTitle;
+            document.getElementById('comp-1-t').innerText = t.comp1T;
+            document.getElementById('comp-1-d').innerText = t.comp1D;
+            document.getElementById('comp-2-t').innerText = t.comp2T;
+            document.getElementById('comp-2-d').innerText = t.comp2D;
+            document.getElementById('comp-3-t').innerText = t.comp3T;
+            document.getElementById('comp-3-d').innerText = t.comp3D;
+            document.getElementById('services-title').innerText = t.servicesTitle;
+            document.getElementById('budget-title-alt').innerText = t.budgetTitle;
+            document.getElementById('budget-desc').innerText = t.budgetDesc;
+            document.getElementById('chart-title-1').innerText = t.chartT1;
+            document.getElementById('roadmap-title').innerText = t.roadmapTitle;
+            document.getElementById('roadmap-desc').innerText = t.roadmapDesc;
+            document.getElementById('footer-title').innerText = t.footerTitle;
+            document.getElementById('footer-desc').innerText = t.footerDesc;
 
-            // Table
-            const body = document.getElementById('budget-body');
-            body.innerHTML = '';
-            t.rows.forEach(row => {
-                body.innerHTML += `<tr><td class="p-4 border-b font-bold">${row[0]}</td><td class="p-4 border-b text-gray-500">${row[1]}</td><td class="p-4 border-b text-right font-black">${row[2]}</td></tr>`;
+            // Render Services (No Prices)
+            const sGrid = document.getElementById('services-grid');
+            sGrid.innerHTML = '';
+            t.services.forEach(s => {
+                sGrid.innerHTML += `
+                    <div class="section-card hover:bg-slate-900 group transition-all duration-300">
+                        <h4 class="font-bold text-mint-500 text-xs mb-3 uppercase tracking-widest">${s.t}</h4>
+                        <p class="text-xs text-slate-500 group-hover:text-slate-300 leading-relaxed">${s.d}</p>
+                    </div>
+                `;
             });
 
-            // Repay List
-            const list = document.getElementById('repay-list');
-            list.innerHTML = '';
-            t.repayL.forEach((li, i) => {
-                const chars = ['A', 'B', 'C'];
-                list.innerHTML += `<div class="flex gap-4"><div class="w-8 h-8 bg-mint-500/20 text-mint-500 rounded-full flex items-center justify-center font-bold shrink-0 text-xs">${chars[i]}</div><p class="text-[11px]">${li}</p></div>`;
+            // Render Budget List
+            const bList = document.getElementById('budget-breakdown');
+            bList.innerHTML = '';
+            t.budgetItems.forEach(item => {
+                bList.innerHTML += `
+                    <div class="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10 group hover:border-mint-500 transition-colors">
+                        <div>
+                            <h5 class="text-xs font-bold uppercase text-white">${item.t}</h5>
+                            <p class="text-[10px] text-gray-400">${item.d}</p>
+                        </div>
+                        <span class="font-black text-mint-500 text-sm">${item.v}</span>
+                    </div>
+                `;
             });
 
-            // Cards
-            const cards = document.getElementById('growth-cards');
-            cards.innerHTML = '';
+            // Render Roadmap
+            const rCards = document.getElementById('roadmap-cards');
+            rCards.innerHTML = '';
             t.cards.forEach((c, i) => {
-                const border = i === 1 ? 'border-2 border-mint-500 shadow-lg' : 'border border-gray-100';
-                cards.innerHTML += `<div class="bg-white ${border} p-5 rounded-2xl relative overflow-hidden"><p class="text-[10px] font-bold text-mint-600 mb-1">${c.m}</p><h4 class="font-bold text-xs mb-1">${c.t}</h4><p class="text-[10px] text-gray-400 leading-tight">${c.d}</p></div>`;
+                const highlight = i === 1 ? 'border-2 border-mint-500 shadow-xl' : 'border border-gray-100';
+                rCards.innerHTML += `
+                    <div class="bg-white ${highlight} p-6 rounded-3xl">
+                        <p class="text-[9px] font-bold text-mint-600 mb-2 uppercase tracking-tighter">${c.m}</p>
+                        <h4 class="font-black text-xs mb-2 text-slate-900 uppercase tracking-tight">${c.t}</h4>
+                        <p class="text-[10px] text-slate-500 leading-relaxed">${c.d}</p>
+                    </div>
+                `;
             });
 
-            updateCharts();
+            renderCharts();
         }
 
-        function updateCharts() {
-            const t = translations[currentLang];
-            if (chart1) chart1.destroy();
-            if (chart2) chart2.destroy();
+        function renderCharts() {
+            const t = translations[currentLang] || translations['fr'];
+            if (budgetChart) budgetChart.destroy();
 
-            const ctx1 = document.getElementById('repaymentChart').getContext('2d');
-            chart1 = new Chart(ctx1, {
-                type: 'line',
+            const ctx = document.getElementById('budgetChart').getContext('2d');
+            budgetChart = new Chart(ctx, {
+                type: 'doughnut',
                 data: {
-                    labels: ['M1', 'M4', 'M8', 'M12', 'M16', 'M20'],
+                    labels: t.budgetItems.map(i => i.t),
                     datasets: [{
-                        label: t.chartL1,
-                        data: [48000, 48000, 38000, 25000, 12000, 0],
-                        borderColor: '#22c55e', backgroundColor: 'rgba(34, 197, 94, 0.1)',
-                        fill: true, tension: 0.3, pointRadius: 4, borderWidth: 3
+                        data: [25000, 6000, 10000, 3000, 4000],
+                        backgroundColor: ['#22c55e', '#ffffff', '#2563eb', '#f59e0b', '#64748b'],
+                        borderWidth: 0,
+                        hoverOffset: 15
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { color: '#94a3b8', font: { size: 9 } } }, x: { ticks: { color: '#94a3b8', font: { size: 9 } } } } }
-            });
-
-            const ctx2 = document.getElementById('growthChart').getContext('2d');
-            chart2 = new Chart(ctx2, {
-                type: 'bar',
-                data: {
-                    labels: t.chartTrim,
-                    datasets: [{
-                        label: t.chartL2,
-                        data: [35000, 80000, 140000, 220000],
-                        backgroundColor: '#0f172a', borderRadius: 8
-                    }]
-                },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { font: { size: 9 } } }, x: { ticks: { font: { size: 9 } } } } }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 10 } } }
+                    },
+                    cutout: '70%'
+                }
             });
         }
 
